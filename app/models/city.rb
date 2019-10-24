@@ -1,5 +1,5 @@
 class City < ApplicationRecord
-  belongs_to :doctor
-  belongs_to :patient
-  belongs_to :appointement
+  has_many :doctor
+  has_many :patient
+  has_many :appointement
 end

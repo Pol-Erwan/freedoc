@@ -16,6 +16,13 @@ City.destroy_all
 
 doctor_array = []
 patient_array = []
+city_array = []
+
+6.times do
+
+city = City.create(name: Faker::Address.city)
+city_array << city
+end
 
 6.times do |index|
 
@@ -24,7 +31,8 @@ patient_array = []
  patient_array << Patient.create(id:index, first_name: Faker::Name.first_name, last_name: Faker::Name.middle_name)
 end
 
-6.times do |patient|
+6.times do
 
- Appointment.create(date: Faker::Time.forward(days: 28),doctor: doctor_array.sample, patient: patient_array.sample)
+ Appointment.create(date: Faker::Date.forward(days: 10),doctor: doctor_array.sample, patient: patient_array.sample)#, city: city_array.sample)
 end
+
